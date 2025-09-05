@@ -32,7 +32,7 @@ function App(){
     }
     ];
   
-    const getMember = (age) =>age >= 20 ? '성인' : '미성년자';
+    const getMember = (age) => age >= 20 ? '성인' : '미성년자';
 
         const MemberTable = (
         <table border="1">
