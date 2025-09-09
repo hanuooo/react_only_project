@@ -45,6 +45,8 @@ export const menuData = [
          {path : '/use_state_03', label : '스테이트 실습 03'},
          {path : '/use_state_04', label : '스테이트 실습 04'},
          {path : '/use_effect_01', label : '유저 이펙트 01'},
+         {path : '/use_effect_02', label : '유저 이펙트 02'},
+         {path : '/use_effect_03', label : '유저 이펙트 03'},
            
     ]
 },
