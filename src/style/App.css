@@ -7,9 +7,10 @@
 
 
 /* img 태그의 이미지 크기를 특정 픽셀로 지정*/
-img1{
+img1 {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* 이미지 비율 유지하면서 잘림 발생 가능 */
+    object-fit: cover;
+    /* 이미지 비율 유지하면서 잘림 발생 가능 */
     margin: 10px auto 10px auto;
 }
