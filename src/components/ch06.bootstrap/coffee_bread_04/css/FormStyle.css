@@ -1,5 +1,5 @@
 /* 공통 InputGroup 그룹에 동일 스타일 지정 */
-.custom-input-group{
+.custom-input-group {
     margin-bottom: 12px;
 }
 
@@ -24,22 +24,23 @@
 .custom-input-group .form-control,
 .custom-input-group select,
 .custom-input-group textarea {
-  border-radius: 0 0.5rem 0.5rem 0; /* 오른쪽만 둥글게 */
-  border: 1px solid #ced4da;
-  font-size: 0.95rem;
-  padding: 0.5rem;
-  transition: box-shadow 0.2s ease-in-out;
+    border-radius: 0 0.5rem 0.5rem 0;
+    /* 오른쪽만 둥글게 */
+    border: 1px solid #ced4da;
+    font-size: 0.95rem;
+    padding: 0.5rem;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .custom-input-group .form-control:focus,
 .custom-input-group select:focus,
 .custom-input-group textarea:focus {
-  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
-  border-color: #86b7fe;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+    border-color: #86b7fe;
 }
 
 /* textarea 높이 기본값 */
 .custom-input-group textarea {
-  min-height: 80px;
-  resize: vertical;
+    min-height: 80px;
+    resize: vertical;
 }

@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap";
 
 import './../css/Display.css';
 
-function App({ product }) {
+function App({ product, categories }) {
     // product는 개발자 선택한 상품에 대한 정보
     return (
         <div className="mytable">
@@ -26,7 +26,16 @@ function App({ product }) {
                                     </tr>
                                     <tr>
                                         <td>카테고리</td>
-                                        <td>{product.category === 'bread' ? '빵' : '음료수'}</td>
+                                        <td>
+                                            {
+                                                (() => {
+                                                    const match = categories.find((cate) => {
+                                                        return cate.english === product.category;
+                                                    });
+                                                    return match ? match.korean : product.category;
+                                                })() /* 마지막 ()는 즉시 실행 함수 */
+                                            }
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>재고</td>
