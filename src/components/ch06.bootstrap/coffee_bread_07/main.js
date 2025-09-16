@@ -160,7 +160,7 @@ function App() {
 
     /* 정렬 정보를 사용하여 정렬을 수행해주는 함수입니다. */
     /* category 조회시 영문이 아닌 한글로 수정하도록 합니다. */
-    const ordering = (orderInformation) => {
+    const Ordering = (orderInformation) => {
         const column = orderInformation.column ; // 정렬할 때 사용할 컬럼
         const method = orderInformation.ordering ; // 정렬 방법 (오름차순, 내림차순)
 
@@ -197,20 +197,28 @@ function App() {
         const newOrderInfo = {column:column_name, ordering:order_by} ; // 변경된 정렬 정보
         setOrderInfo(newOrderInfo); // 변경 내용을 state에 반영시킵니다.
 
-        ordering(newOrderInfo); // 정렬 함수를 호출합니다.
+        Ordering(newOrderInfo); // 정렬 함수를 호출합니다.
     }
 
     /* 필드 검색 기능 추가 */
     /* 필드 검색시 내가 선택한 category의 영문 이름이 저장되는 state입니다. */
-    const [filterCategory, setFilterCategory] = useState(null);
+    const [filterCategory, setFilterCategory] = useState('all'); // 기본 값은 전체를 의미하는 all로 
 
     /* 사용자가 카테고리 콤보 박스에서 다른 카테고리를 선택하였습니다. */
     const CategoryChangerd = (changedCategory) =>{
         setFilterCategory(changedCategory); // 선택된 카테고리의 이름이 변경되었습니다.
 
         //필터링이 이루어 지면, 정렬 함수를 다시 실행 시켜 화면을 갱신시킵니다.
-        ordering(orderInfo) ;
+        Ordering(orderInfo) ;
     }
+
+    // 필드검색을 사용하여 필터링을 수행할지 말지를 결정하는 부울 타입의 변수
+    const isFilteringNeeded = filterCategory && filterCategory !== 'all';
+
+    // 삼항 연산자를 사용하여 선택된 카테고리와 동일한 품목들만 필터링합니다.
+    const filteredProducts = isFilteringNeeded 
+        ? products.filter ((item) => item.category === filterCategory) 
+        : products ;
 
     return (
         <Card>
@@ -220,7 +228,7 @@ function App() {
             <Card.Body>
                 {/* onClickToContent 프롭스가 리턴되고 난 후 ClickArrived 함수가 동작되도록 하겠습니다. */}
                 <Content 
-                contents={products}
+                contents={filteredProducts}
                 onClickToContent={ClickArrived}
                 categories={categories} 
                 onOrderByClick={ClickOrderBy}
